@@ -74,21 +74,25 @@ namespace snake
         {
             if (e.KeyCode == Keys.Left)
             {
+                snake.IsNearWall = false;
                 snakeDirection = new DirectionLeft();
                 snake.NextDirection = new DirectionLeft();
             }
             else if (e.KeyCode == Keys.Right)
             {
+                snake.IsNearWall = false;
                 snakeDirection = new DirectionRight();
                 snake.NextDirection = new DirectionRight();
             }
             else if (e.KeyCode == Keys.Down)
             {
+                snake.IsNearWall = false;
                 snakeDirection = new DirectionDown();
                 snake.NextDirection = new DirectionDown();
             }
             else if (e.KeyCode == Keys.Up)
             {
+                snake.IsNearWall = false;
                 snakeDirection = new DirectionUp();
                 snake.NextDirection = new DirectionUp();
             }

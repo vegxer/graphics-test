@@ -71,7 +71,7 @@ namespace snake
         private float scale, screenWidth, screenHeight;
         private SolidBrush brush;
         public Direction NextDirection = new DirectionRight();
-        private bool isNearWall = false;
+        public bool IsNearWall = false;
         private PointF detourStartPoint;
 
         public Snake(int size, float ballRadius, float scale, float screenWidth, float screenHeight, SolidBrush brush)
@@ -108,13 +108,13 @@ namespace snake
 
             int j = balls.Count - 1;
 
-            if (isNearWall)
+            if (IsNearWall)
             {
                 balls[j].MoveTo(NextDirection);
                 if (Math.Abs(balls[j].CenterCoords.X - detourStartPoint.X) < balls[j].Radius &&
                     Math.Abs(balls[j].CenterCoords.Y - detourStartPoint.Y) < balls[j].Radius)
                 {
-                    isNearWall = false;
+                    IsNearWall = false;
                     balls[j].MoveBack();
                     return direction;
                 }
@@ -147,10 +147,10 @@ namespace snake
             balls[j].MoveTo(direction);
             if (HitTheWall(balls[j], figures))
             {
-                if (!isNearWall)
+                if (!IsNearWall)
                 {
                     detourStartPoint = new PointF(balls[j].CenterCoords.X, balls[j].CenterCoords.Y);
-                    isNearWall = true;
+                    IsNearWall = true;
                 }
                 NextDirection = direction.Turn180().Turn180();
                 balls[j].MoveBack();
