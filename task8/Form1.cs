@@ -9,7 +9,7 @@ namespace task8
         private Pen hoursPen = new Pen(Color.Black, 12),
             minutesPen = new Pen(Color.Black, 6),
             secondsPen = new Pen(Color.Red, 3);
-        private float scale, step = 0.2f;
+        private float scale, step = 6 * (float)Math.PI / 180;
         private Hand hoursHand, minutesHand, secondsHand;
         private float clockRadius;
 
@@ -99,7 +99,7 @@ namespace task8
                 {
                     startButton.Text = "Стоп";
                     speedTextBox.ReadOnly = true;
-                    timer.Interval = 100 / speed;
+                    timer.Interval = 1000 / speed;
                     timer.Enabled = true;
                 }
                 else
